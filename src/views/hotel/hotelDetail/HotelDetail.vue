@@ -1,10 +1,10 @@
 <template>
-  <div class="tour-detail">
+  <div class="hotel-detail">
     <nar-bar/>
     <big-screen-bot/>
     <main>
       <position/>
-      <detail-main/>
+      <detail-main type="hotel" />
     </main>
     <my-footer/>
   </div>
@@ -17,10 +17,8 @@
   import DetailMain from "../../../components/common/itemDetail/DetailMain";
   import MyFooter from "../../../components/common/footer/MyFooter";
 
-  import 'slider-pro';
-
   export default {
-    name: "TourDetail",
+    name: "HotelDetail",
     components: {
       BigScreenBot,
       NarBar,

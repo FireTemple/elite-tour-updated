@@ -7,11 +7,21 @@ Vue.use(Vuex);
 let store = new Vuex.Store({
   state: {
     currentTourId: null,
+    currentHotelId: null,
+    currentResId: null,
   },
   mutations: {
     changeCurrentTourId(state,payload){
       console.log(payload)
       state.currentTourId = payload.id;
+    },
+    changeCurrentHotelId(state,payload){
+      console.log(payload)
+      state.currentHotelId = payload.id;
+    },
+    changeCurrentResId(state,payload){
+      console.log(payload)
+      state.currentResId = payload.id;
     }
   }
 });

@@ -38,7 +38,7 @@
     </div>
     <br>
     <table class="table table_summary">
-      <tbody>
+      <tbody v-show="isTour">
       <tr>
         <td>
           Adults
@@ -72,6 +72,16 @@
         </td>
       </tr>
       </tbody>
+      <tbody v-show="isHotel">
+      <tr class="total">
+        <td>
+          Total cost
+        </td>
+        <td class="text-right">
+          {{price.adultPrice}}
+        </td>
+      </tr>
+      </tbody>
     </table>
     <a class="btn_full" href="javascript:void(0);" style="color: #f6961d">Book now</a>
     <a class="btn_full_outline" href="javascript:void(0);"><i class=" icon-heart"></i> Add to whislist</a>
@@ -82,6 +92,12 @@
   export default {
     name: "Booking",
     props:{
+      type:{
+        type:String,
+        default() {
+          return 'tour';
+        }
+      },
       price:{
         type: Object,
         default(){
@@ -125,7 +141,13 @@
     computed:{
       total(){
         return this.adultsNumber * this.price.adultPrice + this.kidsNumber * this.price.kidsPrice;
-      }
+      },
+      isTour(){
+        return this.type === 'tour';
+      },
+      isHotel(){
+        return this.type === 'hotel';
+      },
     }
   }
 </script>

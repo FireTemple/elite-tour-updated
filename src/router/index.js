@@ -4,8 +4,13 @@ import Tours from "../views/tour/Tours";
 import TourList from "../views/tour/tourList/TourList";
 import TourDetail from "../views/tour/tourDetail/TourDetail";
 import HotelList from "../views/hotel/hotelList/HotelList";
-// 必须通过vue.use 安装插件
+import HotelDetail from "../views/hotel/hotelDetail/HotelDetail";
+import ResList from "../views/res/resList/ResList";
+import ResDetail from "../views/res/resDetail/ResDetail";
 
+
+
+// 必须通过vue.use 安装插件
 Vue.use(VueRouter);
 
 const routes = [
@@ -28,6 +33,18 @@ const routes = [
   {
     path: '/hotelsList',
     component: HotelList
+  },
+  {
+    path: '/hotelsDetail',
+    component: HotelDetail
+  },
+  {
+    path: '/resList',
+    component: ResList
+  },
+  {
+    path: '/resDetail',
+    component: ResDetail
   },
 
 ]

@@ -91,7 +91,7 @@
           {name: 'Home',routeUrl: '/tours'},
           {name: 'Tours',routeUrl: '/tours'},
           {name: 'Hotels',routeUrl: '/hotelsList'},
-          {name: 'Restaurants',routeUrl: '/restaurantsList'},
+          {name: 'Restaurants',routeUrl: '/resList'},
         ]
       }
     },
