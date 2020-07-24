@@ -1,0 +1,26 @@
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!-- 双向的同时变化 -->
+<div id="app">
+  <input type="text" v-model="message">{{message}}
+</div>
+
+<!-- 导入Vue.js -->
+<script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: "#app",
+    data(){
+      return {
+        message:"lalalal"
+      }
+    }
+  })
+</script>
+</body>
+</html>
