@@ -9,6 +9,10 @@ let store = new Vuex.Store({
     currentTourId: null,
     currentHotelId: null,
     currentResId: null,
+    wishlist:{
+
+    }
+
   },
   mutations: {
     changeCurrentTourId(state,payload){

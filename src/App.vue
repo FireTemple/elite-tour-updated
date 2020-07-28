@@ -1,10 +1,13 @@
 <template>
   <div id="app">
+    <loading/>
     <router-view/>
+    <sign-in/>
   </div>
 </template>
 
 <script>
+
 import 'assets/js/common_scripts_min';
 import 'assets/js/functions';
 
@@ -12,10 +15,14 @@ import 'assets/js/map';
 import 'assets/js/infobox';
 import {WOW} from 'wowjs';
 
+import SignIn from "./components/bussniess/SignIn";
+import Loading from "./components/common/Loading";
+
 export default {
   name: 'App',
   components: {
-
+    Loading,
+    SignIn
   },
   created() {
     let detectBack = {

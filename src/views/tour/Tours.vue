@@ -19,6 +19,7 @@
   import GoodReasons from "./tours/GoodReasons";
   import MyFooter from "../../components/common/footer/MyFooter";
 
+  import '../../assets/js/tabs';
 
   export default {
 
@@ -33,7 +34,7 @@
       MyFooter
     },
     mounted() {
-
+      new CBPFWTabs(document.getElementById('tabs'));
     }
   }
 </script>

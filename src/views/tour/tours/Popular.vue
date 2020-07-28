@@ -2,7 +2,7 @@
   <div class="white_bg">
     <div class="container margin_60">
       <div class="main_title">
-        <h2>Other <span>Populars</span> in Paris</h2>
+        <h2>Other<span>Populars</span> in Paris</h2>
         <p>
           Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
         </p>
@@ -347,7 +347,6 @@
             </div>
             <!--End row -->
           </section>
-
         </div>
         <!-- /content -->
       </div>

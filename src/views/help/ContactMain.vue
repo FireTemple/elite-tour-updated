@@ -79,12 +79,7 @@
             </li>
           </ul>
         </div>
-        <div class="box_style_4">
-          <i class="icon_set_1_icon-57"></i>
-          <h4>Need <span>Help?</span></h4>
-          <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-          <small>Monday to Friday 9.00am - 7.30pm</small>
-        </div>
+        <helps/>
       </div>
       <!-- End col-md-4 -->
     </div>
@@ -92,8 +87,12 @@
 </template>
 
 <script>
+  import Helps from "../../components/common/listMain/Helps";
     export default {
-        name: "ContactMain"
+        name: "ContactMain",
+      components: {
+        Helps
+      }
     }
 </script>
 
