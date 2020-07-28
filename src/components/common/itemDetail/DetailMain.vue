@@ -21,6 +21,14 @@
             <li><i class="icon_set_1_icon-27"></i>Parking</li>
             <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
           </ul>
+          <ul v-show="isRes">
+            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
+            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
+            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li><i class="icon_set_1_icon-27"></i>Parking</li>
+            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
+          </ul>
         </div>
         <SliderPro/>
         <hr>
@@ -28,6 +36,7 @@
           <des1 slot="desDetail" :type="type"/>
           <schedule slot="schedule" v-if="isTour" />
           <room-type slot="rooms" v-else-if="isHotel" />
+          <opening-time slot="opening" v-else/>
         </DetailDes>
       </div>
       <!--End  single_tour_desc-->
@@ -51,7 +60,7 @@
   import Booking from "./Booking";
   import Schedule from "../../bussniess/detailSection/Schedule";
   import RoomType from "../../bussniess/detailSection/RoomType";
-
+  import OpeningTime from "../../bussniess/detailSection/OpeningTime";
   export default {
     name: "DetailMain",
     components: {
@@ -61,7 +70,8 @@
       Booking,
       Des1,
       Schedule,
-      RoomType
+      RoomType,
+      OpeningTime
     },
     created() {
       $(document).ready(function ($) {

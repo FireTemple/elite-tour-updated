@@ -16,7 +16,7 @@
   import TourListMain from "./TourListMain";
 
   export default {
-    name: "TourDetail",
+    name: "TourList",
     components: {
       NarBar,
       MyFooter,

@@ -7,9 +7,8 @@ import HotelList from "../views/hotel/hotelList/HotelList";
 import HotelDetail from "../views/hotel/hotelDetail/HotelDetail";
 import ResList from "../views/res/resList/ResList";
 import ResDetail from "../views/res/resDetail/ResDetail";
-
-
-
+import Faq from "../views/help/Faq";
+import Contact from "../views/help/Contact";
 // 必须通过vue.use 安装插件
 Vue.use(VueRouter);
 
@@ -46,6 +45,14 @@ const routes = [
     path: '/resDetail',
     component: ResDetail
   },
+  {
+    path: '/faq',
+    component: Faq
+  },
+  {
+    path: '/contact',
+    component: Contact
+  }
 
 ]
 

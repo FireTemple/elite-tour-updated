@@ -10,6 +10,7 @@
     <hr>
     <slot name="schedule"/>
     <slot name="rooms"/>
+    <slot name="opening"/>
     <hr>
     <div class="row">
       <div class="col-lg-3">
