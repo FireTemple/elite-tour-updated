@@ -22,37 +22,37 @@
         </div>
       </div>
     </li>
-    <li>
-      <div class="tooltip_styled tooltip-effect-4">
-        <span class="tooltip-item"><i class="icon_set_1_icon-97"></i></span>
-        <div class="tooltip-content">
-          <h4>Languages</h4> {{detail.language}}
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip_styled tooltip-effect-4">
-        <span class="tooltip-item"><i class="icon_set_1_icon-27"></i></span>
-        <div class="tooltip-content">
-          <h4>Parking</h4> {{detail.parking.first}}
-          <br> {{detail.parking.second}}
-          <br> {{detail.parking.third}}
-          <br>
-        </div>
-      </div>
-    </li>
-    <li v-show="detail.hasTransport">
-      <div class="tooltip_styled tooltip-effect-4">
-        <span class="tooltip-item"><i class="icon_set_1_icon-25"></i></span>
-        <div class="tooltip-content">
-          <h4>Transport</h4>
-          <strong>Metro: </strong>{{detail.transport.metro}}
-          <br>
-          <strong>Bus:</strong> {{detail.transport.bus}}
-          <br>
-        </div>
-      </div>
-    </li>
+<!--    <li>-->
+<!--      <div class="tooltip_styled tooltip-effect-4">-->
+<!--        <span class="tooltip-item"><i class="icon_set_1_icon-97"></i></span>-->
+<!--        <div class="tooltip-content">-->
+<!--          <h4>Languages</h4> {{detail.language}}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--      <div class="tooltip_styled tooltip-effect-4">-->
+<!--        <span class="tooltip-item"><i class="icon_set_1_icon-27"></i></span>-->
+<!--        <div class="tooltip-content">-->
+<!--          <h4>Parking</h4> {{detail.parking.first}}-->
+<!--          <br> {{detail.parking.second}}-->
+<!--          <br> {{detail.parking.third}}-->
+<!--          <br>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--    <li v-show="detail.hasTransport">-->
+<!--      <div class="tooltip_styled tooltip-effect-4">-->
+<!--        <span class="tooltip-item"><i class="icon_set_1_icon-25"></i></span>-->
+<!--        <div class="tooltip-content">-->
+<!--          <h4>Transport</h4>-->
+<!--          <strong>Metro: </strong>{{detail.transport.metro}}-->
+<!--          <br>-->
+<!--          <strong>Bus:</strong> {{detail.transport.bus}}-->
+<!--          <br>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </li>-->
   </ul>
 </template>
 

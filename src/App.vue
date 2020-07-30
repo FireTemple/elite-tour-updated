@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <loading/>
-    <router-view/>
+      <router-view/>
     <sign-in/>
   </div>
 </template>
@@ -17,6 +17,7 @@ import {WOW} from 'wowjs';
 
 import SignIn from "./components/bussniess/SignIn";
 import Loading from "./components/common/Loading";
+
 
 export default {
   name: 'App',

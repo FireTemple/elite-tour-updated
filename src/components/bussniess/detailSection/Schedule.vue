@@ -4,170 +4,19 @@
       <h3>Schedule</h3>
     </div>
     <div class="col-lg-9">
-
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th colspan="2">
-              1st March to 31st October
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              Monday
-            </td>
-            <td>
-              10.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Tuesday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Wednesday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Thursday
-            </td>
-            <td>
-              Closed
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Friday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Saturday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Sunday
-            </td>
-            <td>
-              10.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <strong><em>Last Admission</em></strong>
-            </td>
-            <td>
-              <strong>17.00</strong>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th colspan="2">
-              1st November to 28th February
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              Monday
-            </td>
-            <td>
-              10.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Tuesday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Wednesday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Thursday
-            </td>
-            <td>
-              <span class="label label-danger">Closed</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Friday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Saturday
-            </td>
-            <td>
-              09.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Sunday
-            </td>
-            <td>
-              10.00 - 17.30
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <strong><em>Last Admission</em></strong>
-            </td>
-            <td>
-              <strong>17.00</strong>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <ScheduleTable v-for="item in data.schedule" :key="item.key" :schedule="item" />
     </div>
   </div>
 
 </template>
 
 <script>
+  import ScheduleTable from "./ScheduleTable";
   export default {
     name: "Schedule",
+    components: {
+      ScheduleTable
+    },
     props: {
       data: {
         type: Object,
@@ -175,6 +24,7 @@
           return {
             schedule: [
               {
+                key:'1',
                 duration: '1st March to 31st October',
                 detail: [
                   '10.00 - 17.30',
@@ -188,6 +38,7 @@
                 ],
               },
               {
+                key:'2',
                 duration: '1st November to 28th February',
                 detail: [
                   '10.00 - 17.30',

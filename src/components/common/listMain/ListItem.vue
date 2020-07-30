@@ -4,24 +4,24 @@
       <div class="col-lg-4 col-md-4">
         <div class="ribbon_3" :class="{popular: this.isPopular}" ><span>{{itemInfo.type}}</span>
         </div>
-        <div class="wishlist">
-          <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span
-            class="tooltip-back">Add to wishlist</span></span></a>
-        </div>
+<!--        <div class="wishlist">-->
+<!--          <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span-->
+<!--            class="tooltip-back">Add to wishlist</span></span></a>-->
+<!--        </div>-->
         <div class="img_list">
           <a href="javascript:void(0);"><img :src="itemInfo.imgUrl" alt="Image">
-            <div class="short_info" v-show="isTour">
-              <i class="icon_set_1_icon-4"></i>
-              Museums
-            </div>
+<!--            <div class="short_info" v-show="isTour">-->
+<!--              <i class="icon_set_1_icon-4"></i>-->
+<!--              Museums-->
+<!--            </div>-->
           </a>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
         <div class="tour_list_desc">
-          <div class="rating"><i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i
-            class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>
-          </div>
+<!--          <div class="rating"><i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i-->
+<!--            class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>-->
+<!--          </div>-->
           <h3><strong>{{itemInfo.title}}</strong>{{this.type}}</h3>
           <p>{{itemInfo.dec}}</p>
           <!-- item info here -->
@@ -93,9 +93,8 @@
           this.$router.push('/resDetail');
         }
 
+      },
 
-        // window.location.reload();
-      }
     },
     computed:{
       isTour(){
@@ -107,7 +106,7 @@
       isPopular(){
         return this.itemInfo.type === 'popular';
       }
-    }
+    },
   }
 </script>
 

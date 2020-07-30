@@ -7,14 +7,9 @@
      {{data.includeDes}}
     </p>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <ul class="list_ok">
           <li v-for="item in data.includeItem1">{{item}}</li>
-        </ul>
-      </div>
-      <div class="col-md-6">
-        <ul class="list_ok">
-          <li v-for="item in data.includeItem2">{{item}}</li>
         </ul>
       </div>
     </div>
@@ -46,12 +41,6 @@
               't est saepe munere teros',
               'No scripta electram necessitatibus sit',
               'Quidam percipitur instructior an eum',
-            ],
-            includeItem2: [
-              'Lorem ipsum dolor sit amet',
-              'No scripta electram necessitatibus sit',
-              'Quidam percipitur instructior an eum',
-              'No scripta electram necessitatibus sit'
             ]
           }
         }

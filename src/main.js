@@ -9,6 +9,7 @@ import {TweenLite} from 'gsap';
 window.TweenLite = TweenLite;
 window.$ = window.jQuery = require('jquery')
 
+
 Vue.prototype.$store =store;
 Vue.config.productionTip = false
 

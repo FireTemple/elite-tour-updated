@@ -158,8 +158,16 @@
 </template>
 
 <script>
+
     export default {
-        name: "Carousel"
+        name: "Carousel",
+      created() {
+        console.log("创建了")
+      },
+      destroyed() {
+        console.log("销毁了")
+      }
+
     }
 </script>
 

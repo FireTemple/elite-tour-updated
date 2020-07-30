@@ -3,45 +3,45 @@
     <div class="row">
       <div class="col-lg-8" id="single_tour_desc">
         <!-- need seal -->
-        <div id="single_tour_feat">
-          <ul v-show="isTour">
-            <li><i class="icon_set_1_icon-4"></i>Museum</li>
-            <li><i class="icon_set_1_icon-83"></i>3 Hours</li>
-            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-97"></i>Audio guide</li>
-            <li><i class="icon_set_1_icon-29"></i>Tour guide</li>
-          </ul>
-          <ul v-show="isHotel">
-            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
-            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-27"></i>Parking</li>
-            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
-          </ul>
-          <ul v-show="isRes">
-            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
-            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-27"></i>Parking</li>
-            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
-          </ul>
-        </div>
+<!--        <div id="single_tour_feat">-->
+<!--          <ul v-show="isTour">-->
+<!--            <li><i class="icon_set_1_icon-4"></i>Museum</li>-->
+<!--            <li><i class="icon_set_1_icon-83"></i>3 Hours</li>-->
+<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
+<!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
+<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
+<!--            <li><i class="icon_set_1_icon-97"></i>Audio guide</li>-->
+<!--            <li><i class="icon_set_1_icon-29"></i>Tour guide</li>-->
+<!--          </ul>-->
+<!--          <ul v-show="isHotel">-->
+<!--            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>-->
+<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
+<!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
+<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
+<!--            <li><i class="icon_set_1_icon-27"></i>Parking</li>-->
+<!--            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>-->
+<!--          </ul>-->
+<!--          <ul v-show="isRes">-->
+<!--            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>-->
+<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
+<!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
+<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
+<!--            <li><i class="icon_set_1_icon-27"></i>Parking</li>-->
+<!--            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>-->
+<!--          </ul>-->
+<!--        </div>-->
         <SliderPro/>
         <hr>
         <DetailDes>
-          <des1 slot="desDetail" :type="type"/>
-          <schedule slot="schedule" v-if="isTour" />
+          <des1 slot="desDetail" :type="type" :data="des" />
+          <schedule slot="schedule" v-if="isTour" :data="schedule" />
           <room-type slot="rooms" v-else-if="isHotel" />
-          <opening-time slot="opening" v-else/>
+          <opening-time slot="opening" v-else :data="opening"/>
         </DetailDes>
       </div>
       <!--End  single_tour_desc-->
       <aside class="col-lg-4">
-        <booking :type="type" />
+<!--        <booking :type="type" />-->
         <helps/>
       </aside>
 
@@ -102,6 +102,24 @@
         type: String,
         default(){
           return 'tour';
+        }
+      },
+      des: {
+        type: Object,
+        default(){
+          return {};
+        }
+      },
+      schedule:{
+        type: Object,
+        default(){
+          return {};
+        }
+      },
+      opening:{
+        type: Object,
+        default(){
+          return {};
         }
       }
     },

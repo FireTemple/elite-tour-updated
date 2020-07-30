@@ -21,9 +21,6 @@
     methods: {
       goUrl() {
         this.$router.push(this.info.routeUrl);
-        if (this.info.routeUrl === '/tours' || this.info.routeUrl === '/') {
-          window.location.reload();
-        }
       }
     }
   }

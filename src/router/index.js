@@ -61,9 +61,10 @@ let router = new VueRouter({
   mode:'history'
 });
 
+
 router.beforeEach((to, from, next) => {
-  // `to` and `from` are both route objects
   next();
+  console.log(document.getElementsByTagName("head"));
 })
 
 router.afterEach((to, from) => {

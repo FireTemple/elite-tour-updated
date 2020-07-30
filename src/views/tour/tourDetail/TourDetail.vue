@@ -1,10 +1,10 @@
 <template>
   <div class="tour-detail">
     <nar-bar/>
-    <big-screen-bot/>
+    <big-screen-bot :title="name" :address="address" :price="price" />
     <main>
       <position/>
-      <detail-main/>
+      <detail-main :type="type" :des="des"  :schedule="schedule" :opening="opening" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 l-main :type="type"  />
     </main>
     <my-footer/>
   </div>
@@ -27,6 +27,18 @@
       Position,
       DetailMain,
       MyFooter
+    },
+    data(){
+      return {
+        type:'tour',
+        // 给大屏幕用
+        name:'',
+        address:'',
+        price:'',
+        des:{},
+        schedule:{},
+        opening:{}
+      }
     },
     beforeCreate() {
       let itemId = this.$store.state.currentTourId;
@@ -55,7 +67,8 @@
           autoplay: false
         });
       });
-    }
+
+    },
   }
 </script>
 

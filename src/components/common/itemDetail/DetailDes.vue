@@ -8,32 +8,32 @@
       <slot name="desDetail"></slot>
     </div>
     <hr>
-    <slot name="schedule"/>
-    <slot name="rooms"/>
-    <slot name="opening"/>
+      <slot name="schedule"/>
+      <slot name="rooms"/>
+      <slot name="opening"/>
     <hr>
-    <div class="row">
-      <div class="col-lg-3">
-        <h3>Reviews</h3>
-        <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Leave a review</a>
-      </div>
-      <div class="col-lg-9">
-        <div id="general_rating">{{data.reviewOverall.count}} Reviews
-          <div class="rating">
-            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i
-            class="icon-smile"></i><i class="icon-smile"></i>
-          </div>
-        </div>
-        <!-- End general_rating -->
-        <OverAllReview/>
-        <!-- End row -->
-        <hr>
-        <!-- review -->
-        <detail-review/>
-        <detail-review/>
-        <detail-review/>
-      </div>
-    </div>
+<!--    <div class="row">-->
+<!--      <div class="col-lg-3">-->
+<!--        <h3>Reviews</h3>-->
+<!--        <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Leave a review</a>-->
+<!--      </div>-->
+<!--      <div class="col-lg-9">-->
+<!--        <div id="general_rating">{{data.reviewOverall.count}} Reviews-->
+<!--          <div class="rating">-->
+<!--            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i-->
+<!--            class="icon-smile"></i><i class="icon-smile"></i>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; End general_rating &ndash;&gt;-->
+<!--        <OverAllReview/>-->
+<!--        &lt;!&ndash; End row &ndash;&gt;-->
+<!--        <hr>-->
+<!--        &lt;!&ndash; review &ndash;&gt;-->
+<!--        <detail-review/>-->
+<!--        <detail-review/>-->
+<!--        <detail-review/>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 
 </template>
@@ -79,11 +79,7 @@
                   '17.00'
                 ]
               }
-            ],
-            reviewOverall:{
-              count:'3',
-              type:'tours'
-            }
+            ]
           }
         }
       }
