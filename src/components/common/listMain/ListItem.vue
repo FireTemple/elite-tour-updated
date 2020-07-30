@@ -24,8 +24,9 @@
 <!--          </div>-->
           <h3><strong>{{itemInfo.title}}</strong>{{this.type}}</h3>
           <p>{{itemInfo.dec}}</p>
+
           <!-- item info here -->
-          <item-info v-show="isTour" />
+          <item-info v-show="isTour"  />
           <HotelItemInfo v-show="isHotel"/>
         </div>
       </div>
@@ -45,6 +46,7 @@
 <script>
   import ItemInfo from "./ItemInfo";
   import HotelItemInfo from "./HotelItemInfo";
+
   export default {
     name: "ListItem",
     components: {

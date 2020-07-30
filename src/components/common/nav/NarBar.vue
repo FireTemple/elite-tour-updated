@@ -29,7 +29,9 @@
             </div>
             <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
             <ul>
+
              <Tag v-for="item in navList" :info="item" :key="item.name"/>
+
               <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">helps <i class="icon-down-open-mini"></i></a>
                 <ul>
@@ -146,6 +148,7 @@
     methods:{
       goTo(destination){
         this.$router.push('/' + destination);
+
       }
     }
   }

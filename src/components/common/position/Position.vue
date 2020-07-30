@@ -27,6 +27,7 @@
       methods:{
           goHome(){
             this.$router.push('/tours');
+            window.location.reload();
           },
           goDirection(destination){
               this.$router.push(destination);

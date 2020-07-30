@@ -4,7 +4,7 @@
       <h3>Schedule</h3>
     </div>
     <div class="col-lg-9">
-      <ScheduleTable v-for="item in data.schedule" :key="item.key" :schedule="item" />
+      <ScheduleTable v-for="item in data.schedule" :key="item.id" :schedule="item" />
     </div>
   </div>
 
