@@ -31,30 +31,8 @@
       </aside>
       <!--End aside -->
       <div class="col-lg-9">
-        <list-item/>
-        <list-item/>
-        <list-item/>
+        <list-item v-for="(item, index) in tourList" :key="item.id" :info="item" type="tour"/>
         <hr>
-<!--        <nav aria-label="Page navigation">-->
-<!--          <ul class="pagination justify-content-center">-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link" href="#" aria-label="Previous">-->
-<!--                <span aria-hidden="true">&laquo;</span>-->
-<!--                <span class="sr-only">Previous</span>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--            <li class="page-item active"><span class="page-link">1<span class="sr-only">(current)</span></span>-->
-<!--            </li>-->
-<!--            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-<!--            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--            <li class="page-item">-->
-<!--              <a class="page-link" href="#" aria-label="Next">-->
-<!--                <span aria-hidden="true">&raquo;</span>-->
-<!--                <span class="sr-only">Next</span>-->
-<!--              </a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </nav>-->
         <!-- end pagination-->
       </div>
       <!-- End col lg 9 -->
@@ -71,6 +49,27 @@
     components:{
       ListItem,
       Helps
+    },
+    created() {
+      this.getTourList();
+    },
+    methods:{
+      getTourList(){
+        this.$axios({
+          method: 'get',
+          url: '/api/acTours'
+        }).then(res => {
+          this.tourList = res.data;
+          console.log(res);
+        }).catch(error => {
+          console.log(error)
+        })
+      }
+    },
+    data(){
+      return {
+        tourList:[]
+      }
     }
   }
 </script>

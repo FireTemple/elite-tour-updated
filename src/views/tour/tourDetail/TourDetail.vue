@@ -1,10 +1,24 @@
 <template>
   <div class="tour-detail">
     <nar-bar/>
-    <big-screen-bot :title="name" :address="address" :price="price" />
+    <big-screen-bot :title="item.name" :city="item.countryArea" :country="item.country" :price="item.cPrice" />
     <main>
-      <position/>
-      <detail-main :type="type" :des="des"  :schedule="schedule" :opening="opening" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 l-main :type="type"  />
+      <position :routes="position"/>
+      <detail-main
+        :type="type"
+        :accessibility="item.hasAccessibility"
+        :is-allowed-pet="item.isAllowedPet"
+        :has-audio-guide="item.hasAudioGuide"
+        :has-tour-guide="item.hasTourGuide"
+        :duration="item.duration"
+        :des="des"
+        :schedule="schedule"
+        :opening="opening"
+        :details="item.details"
+        :name="item.name"
+        :include-des="item.includeDescription"
+        :include-items="includeItems"
+      />
     </main>
     <my-footer/>
   </div>
@@ -30,11 +44,12 @@
     },
     data(){
       return {
+        position: [
+          {
+            positionName: "tour list", direction: "/toursList"
+          }
+        ],
         type:'tour',
-        // 给大屏幕用
-        name:'ARC DE TRIOMPHE',
-        address:'Champ de Mars, 5 Avenue Anatole, 75007 Paris.',
-        price:'52',
         des:{
           title: 'Paris in love',
           titleDes: 'Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit  constituam, an mel iudico constituto efficiendi. Eu ponderum mediocrem has, vitae adolescens in pro. Mea liber ridens inermis ei, mei legendos vulputate an, labitur tibique te qui.',
@@ -90,7 +105,10 @@
             '09.00 - 17.30',
             '09.00 - 17.30',
             '10.00 - 17.30'
-          ]}
+          ]},
+        // real data
+        item:{},
+        includeItems:[]
       }
     },
     beforeCreate() {
@@ -101,7 +119,7 @@
     },
     created() {
       let itemId = this.$store.state.currentTourId;
-      console.log(itemId);
+      this.getTour(itemId);
     },
     mounted() {
       $(document).ready(function ($) {
@@ -122,6 +140,33 @@
       });
 
     },
+    methods:{
+      // obtain tour detail
+      getTourDetail(id) {
+        return this.$axios({
+          method: 'get',
+          url: '/api/tour/' + id,
+        });
+      },
+      // obtain tour include service information
+      getTourIncludeItem(id) {
+        return this.$axios({
+          method: 'get',
+          url: '/api/includeItem/' + id,
+        });
+      },
+      // get all information
+      getTour(id) {
+        let self = this;
+        this.$axios.all([this.getTourDetail(id), this.getTourIncludeItem(id)])
+          .then(this.$axios.spread(function (res1, res2) {
+            self.item = res1.data;
+            self.includeItems = res2.data;
+            self.$forceUpdate();
+            self.editVisible = true;
+          }))
+      },
+    }
   }
 </script>
 

@@ -3,7 +3,7 @@
     <div class="container">
       <ul>
         <li><a href="javascript:void(0);" @click="goHome">Home</a></li>
-        <li v-for="item in routes"><a href="javascript:void(0);" @click="goDirection(item.direction)">Category</a></li>
+        <li v-for="item in routes"><a href="javascript:void(0);" @click="goDirection(item.direction)">{{item.positionName}}</a></li>
         <li>Page active</li>
       </ul>
     </div>
@@ -17,10 +17,7 @@
           routes:{
             type: Array,
             default(){
-              return [
-                {positionName:'Category',direction:'/tours'},
-                {positionName:'test',direction:'/toursList'}
-              ];
+              return [];
             }
           }
       },

@@ -3,40 +3,46 @@
     <div class="row">
       <div class="col-lg-8" id="single_tour_desc">
         <!-- need seal -->
-<!--        <div id="single_tour_feat">-->
-<!--          <ul v-show="isTour">-->
+        <div id="single_tour_feat">
+          <ul v-show="isTour">
 <!--            <li><i class="icon_set_1_icon-4"></i>Museum</li>-->
-<!--            <li><i class="icon_set_1_icon-83"></i>3 Hours</li>-->
-<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
+            <li><i class="icon_set_1_icon-83"></i>{{duration}} Hours</li>
+            <li v-show="hasAccessibility"><i class="icon_set_1_icon-13" ></i>Accessibility</li>
 <!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
-<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
-<!--            <li><i class="icon_set_1_icon-97"></i>Audio guide</li>-->
-<!--            <li><i class="icon_set_1_icon-29"></i>Tour guide</li>-->
-<!--          </ul>-->
-<!--          <ul v-show="isHotel">-->
-<!--            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>-->
-<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
-<!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
-<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
-<!--            <li><i class="icon_set_1_icon-27"></i>Parking</li>-->
-<!--            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>-->
-<!--          </ul>-->
-<!--          <ul v-show="isRes">-->
-<!--            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>-->
-<!--            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>-->
-<!--            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>-->
-<!--            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>-->
-<!--            <li><i class="icon_set_1_icon-27"></i>Parking</li>-->
-<!--            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>-->
-<!--          </ul>-->
-<!--        </div>-->
+            <li v-show="petAllowed"><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li v-show="audioGuide"><i class="icon_set_1_icon-97"></i>Audio guide</li>
+            <li v-show="tourGuide"><i class="icon_set_1_icon-29"></i>Tour guide</li>
+          </ul>
+          <ul v-show="isHotel">
+            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
+            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
+            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li><i class="icon_set_1_icon-27"></i>Parking</li>
+            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
+          </ul>
+          <ul v-show="isRes">
+            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
+            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
+            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li><i class="icon_set_1_icon-27"></i>Parking</li>
+            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
+          </ul>
+        </div>
         <SliderPro/>
         <hr>
         <DetailDes>
-          <des1 slot="desDetail" :type="type" :data="des" />
-          <schedule slot="schedule" v-if="isTour" :data="schedule" />
+          <des1 slot="desDetail"
+                :type="type"
+                :name="name"
+                :details="details"
+                :include-des="includeDes"
+                :include-item="includeItems"
+          />
+          <schedule slot="schedule" v-if="isTour" />
           <room-type slot="rooms" v-else-if="isHotel" />
-          <opening-time slot="opening" v-else :data="opening"/>
+          <opening-time slot="opening" v-else/>
         </DetailDes>
       </div>
       <!--End  single_tour_desc-->
@@ -104,24 +110,55 @@
           return 'tour';
         }
       },
-      des: {
-        type: Object,
+      duration:{
+        type:String,
         default(){
-          return {};
+          return '1'
         }
       },
-      schedule:{
-        type: Object,
+      accessibility:{
+        type:String,
         default(){
-          return {};
+          return '1';
         }
       },
-      opening:{
-        type: Object,
+      isAllowedPet:{
+        type:String,
         default(){
-          return {};
+          return '';
         }
-      }
+      },
+      hasAudioGuide:{
+        type:String,
+        default(){
+          return '';
+        }
+      },
+      hasTourGuide:{
+        type:String,
+        default(){
+          return '';
+        }
+      },
+      name:{
+        type:String,
+        default(){
+          return '';
+        }
+      },
+      details:{
+        type:String,
+        default(){
+          return '';
+        }
+      },
+      includeDes:{
+        type:String,
+        default(){
+          return '';
+        }
+      },
+      includeItems:[]
     },
     computed: {
       isTour(){
@@ -132,6 +169,18 @@
       },
       isRes(){
         return this.type === 'res';
+      },
+      hasAccessibility(){
+        return this.accessibility === '1';
+      },
+      petAllowed(){
+        return this.isAllowedPet === '1';
+      },
+      audioGuide(){
+        return this.hasAudioGuide === '1';
+      },
+      tourGuide(){
+        return this.hasTourGuide === '1';
       }
     }
   }

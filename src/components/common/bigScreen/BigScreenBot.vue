@@ -35,10 +35,16 @@
               return 'ARC DE TRIOMPHE'
             }
           },
-          address: {
+          country: {
             type: String,
             default(){
               return 'Champ de Mars, 5 Avenue Anatole, 75007 Paris.';
+            }
+          },
+          city:{
+            type:String,
+            default(){
+              return ''
             }
           },
           price:{
@@ -51,6 +57,11 @@
         },
       mounted() {
         $('.parallax-window').parallax({zIndex:1});
+      },
+      computed:{
+          address(){
+            return this.city + ' , ' + this.country;
+          }
       }
     }
 </script>
