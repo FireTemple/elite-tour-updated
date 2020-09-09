@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h4>{{roomInfo.roomType}}</h4>
+    <h4>{{roomInfo.type}}</h4>
     <p>{{roomInfo.des}}</p>
 
     <div class="row">
       <div class="col-md-6">
         <ul class="list_icons">
-          <li><i class="icon_set_1_icon-86"></i>{{roomInfo.props.wifi}}</li>
-          <li><i class="icon_set_2_icon-116"></i>{{roomInfo.props.TV}}</li>
-          <li><i class="icon_set_2_icon-106"></i> {{roomInfo.props.sb}}</li>
+          <li v-show="roomInfo.hasWifi"><i class="icon_set_1_icon-86"></i>Free wifi</li>
+          <li v-show="roomInfo.hasTV"><i class="icon_set_2_icon-116"></i>Tv</li>
+          <li v-show="roomInfo.hasSafetyBox"><i class="icon_set_2_icon-106"></i>Safety box</li>
         </ul>
       </div>
       <div class="col-md-6">
         <ul class="list_ok">
-          <li v-for="item in roomInfo.props.wordInfo">{{item}}</li>
+          <li v-show="roomInfo.hasWifi">{{roomInfo.wifiDes}}</li>
+          <li v-show="roomInfo.hasTV">{{roomInfo.tvDes}}</li>
+          <li v-show="roomInfo.hasSafetyBox">{{roomInfo.safteyBoxDes}}</li>
         </ul>
       </div>
     </div>

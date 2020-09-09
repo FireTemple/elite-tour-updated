@@ -3,163 +3,38 @@
 
     <div class="row">
       <aside class="col-lg-3">
-
+        <p>
+          <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+        </p>
         <div id="filters_col">
           <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Filters</a>
           <div class="collapse show" id="collapseFilters">
-            <div class="filter_type">
-              <h6>Price</h6>
-              <input type="text" id="range" name="range" value="">
-            </div>
-            <div class="filter_type">
-              <h6>Star Category</h6>
-              <ul>
-                <li>
-                  <label>
-                    <input type="checkbox"><span class="rating">
-											<i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i>
-											</span>(15)
-                  </label>
+
+
+            <div class="box_style_cat">
+              <ul id="cat_nav">
+                <li  @click="clearFilter"><a href="javascript:void(0);" id="active"><i class="icon_set_1_icon-51"></i>All Hotels<span></span></a>
                 </li>
-                <li>
-                  <label>
-                    <input type="checkbox"><span class="rating">
-											<i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i>
-											</span>(45)
-                  </label>
+                <li @click="filterRules('type','2')"><a href="javascript:void(0);"><i class="icon_set_1_icon-44"></i>Top Rate<span></span></a>
                 </li>
-                <li>
-                  <label>
-                    <input type="checkbox"><span class="rating">
-											<i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-											</span>(35)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox"><span class="rating">
-											<i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-											</span>(25)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox"><span class="rating">
-											<i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-											</span>(15)
-                  </label>
+                <li @click="filterRules('type','3')"><a href="javascript:void(0);"><i class="icon_set_1_icon-37"></i>Popular<span></span></a>
                 </li>
               </ul>
             </div>
-            <div class="filter_type">
-              <h6>Review Score</h6>
-              <ul>
-                <li>
-                  <label>
-                    <input type="checkbox">Superb: 9+ (77)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Very good: 8+ (552)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Good: 7+ (909)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Pleasant: 6+ (1196)
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">No rating (198)
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <div class="filter_type">
-              <h6>Facility</h6>
-              <ul>
-                <li>
-                  <label>
-                    <input type="checkbox">Pet allowed
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Wifi
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Spa
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Restaurant
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Pool
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Parking
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Fitness center
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <div class="filter_type">
-              <h6>District</h6>
-              <ul>
-                <li>
-                  <label>
-                    <input type="checkbox">Paris Centre
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">La Defance
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">La Marais
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox">Latin Quarter
-                  </label>
-                </li>
-              </ul>
-            </div>
+
           </div>
           <!--End collapse -->
         </div>
+        <p>
+          <a class="btn_map"  href="javascript:void(0);">clear filter</a>
+        </p>
         <!--End filters col-->
         <helps/>
       </aside>
       <!--End aside -->
 
       <div class="col-lg-9">
-        <list-item type="hotel" :item-info="itemInfo"  />
-        <list-item type="hotel" :item-info="itemInfo"  />
-        <list-item type="hotel" :item-info="itemInfo"  />
-        <list-item type="hotel" :item-info="itemInfo"  />
-
+        <list-item v-for="item in hotelList" type="hotel" :info="item" :key="item.id"/>
         <hr>
 
         <nav aria-label="Page navigation">
@@ -204,6 +79,8 @@
       // mock data
       data(){
           return {
+            hotelList:[],
+            hotelListTemp:[],
             itemInfo:{
               id:'1d23sds456',
               type: 'popular',
@@ -214,10 +91,46 @@
               pastPrice: '929',
             }
           }
+      },
+      methods:{
+        /**
+         *  get hotel data
+         */
+
+        getData(){
+          this.$axios({
+            method: 'get',
+            url: '/api/hotels'
+          }).then(res => {
+            this.hotelList = res.data;
+            this.hotelListTemp = res.data;
+            console.log(res);
+          })
+        },
+        /**
+         * filter methods
+         */
+        filterRules(attr, value){
+          this.hotelList = this.hotelListTemp;
+          if (attr === 'type'){
+            this.hotelList = this.hotelList.filter(item => {
+              return item.type === value;
+            })
+          }
+        },
+        clearFilter(){
+          this.hotelList = this.hotelListTemp;
+        }
+      },
+      created() {
+          this.getData();
       }
     }
 </script>
 
 <style scoped>
-
+  @import "../../../assets/css/bootstrap.min.css";
+  @import "../../../assets/css/style.css";
+  @import "../../../assets/css/vendors.unminified.css";
+  @import "../../../assets/css/custom.css";
 </style>

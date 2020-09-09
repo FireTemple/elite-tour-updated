@@ -14,20 +14,19 @@
             <li v-show="tourGuide"><i class="icon_set_1_icon-29"></i>Tour guide</li>
           </ul>
           <ul v-show="isHotel">
-            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
-            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-27"></i>Parking</li>
-            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
+            <li v-show="hasTV === '1'"><i class="icon_set_2_icon-116"></i>Plasma TV</li>
+            <li v-show="hasWifi === '1'"><i class="icon_set_1_icon-86"></i>Free Wifi</li>
+            <li v-show="hasPool === '1'"><i class="icon_set_2_icon-110"></i>Pool</li>
+            <li v-show="hasBreakfast === '1'"><i class="icon_set_1_icon-59"></i>Breakfast</li>
+            <li v-show="allowPet === '1'"><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li v-show="hasAccessibility === '1'"><i class="icon_set_1_icon-13"></i>Accessibility</li>
+            <li v-show="hasParking === '1'"><i class="icon_set_1_icon-27"></i>Parking</li>
           </ul>
           <ul v-show="isRes">
-            <li><i class="icon_set_3_restaurant-1"></i>Pizza /Italian</li>
-            <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-            <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-27"></i>Parking</li>
-            <li><i class="icon_set_1_icon-47"></i>No smoking area</li>
+            <li v-show="hasAccessibility"><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+            <li v-show="allowPet === '1'"><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+            <li v-show="hasParking === '1'"><i class="icon_set_1_icon-27"></i>Parking</li>
+            <li v-show="noSmoking === '1'"><i class="icon_set_1_icon-47"></i>No smoking area</li>
           </ul>
         </div>
         <SliderPro/>
@@ -39,9 +38,11 @@
                 :details="details"
                 :include-des="includeDes"
                 :include-item="includeItems"
+                :facilities="facilities"
+                :facilities-des="facilitiesDes"
           />
           <schedule slot="schedule" v-if="isTour" />
-          <room-type slot="rooms" v-else-if="isHotel" />
+          <room-type slot="rooms" v-else-if="isHotel" :room-list="rooms"/>
           <opening-time slot="opening" v-else/>
         </DetailDes>
       </div>
@@ -113,33 +114,84 @@
       duration:{
         type:String,
         default(){
-          return '1'
+          return '2'
         }
       },
       accessibility:{
         type:String,
         default(){
-          return '1';
+          return '2';
         }
       },
       isAllowedPet:{
         type:String,
         default(){
-          return '';
-        }
-      },
-      hasAudioGuide:{
-        type:String,
-        default(){
-          return '';
+          return '2';
         }
       },
       hasTourGuide:{
         type:String,
         default(){
-          return '';
+          return '2';
         }
       },
+      hasAudioGuide:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+
+      hasTV:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      hasWifi:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      hasPool:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      hasBreakfast:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      allowPet:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      hasAccessibility:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      hasParking:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+      noSmoking:{
+        type:String,
+        default(){
+          return '2';
+        }
+      },
+
+      // for tours
       name:{
         type:String,
         default(){
@@ -158,7 +210,11 @@
           return '';
         }
       },
-      includeItems:[]
+      includeItems:[],
+      // for hotel
+      facilities:[],
+      facilitiesDes:'',
+      rooms:[],
     },
     computed: {
       isTour(){

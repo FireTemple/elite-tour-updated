@@ -10,7 +10,7 @@
           </div>
           <div class="col-md-4">
             <div id="price_single_main">
-              from/per person <span><sup>$</sup>{{this.price}}</span>
+              from/per {{priceType}} <span><sup>$</sup>{{this.price}}</span>
             </div>
           </div>
         </div>
@@ -52,15 +52,39 @@
             default(){
               return '52';
             }
-          }
+          },
+          hotelAddress:{
+            type:String,
+            default(){
+              return '';
+            }
+          },
 
+          type:{
+            type: String,
+            default(){
+              return 'tour';
+            }
+          }
         },
       mounted() {
         $('.parallax-window').parallax({zIndex:1});
       },
       computed:{
           address(){
-            return this.city + ' , ' + this.country;
+            if (this.hotelAddress === ''){
+              return this.city + ' , ' + this.country;
+            } else{
+              return this.hotelAddress;
+            }
+          },
+          priceType(){
+            if (this.type === 'tour'){
+              return 'person'
+            }else if (this.type === 'hotel'){
+              return 'day'
+            }else
+              return 'person on average';
           }
       }
     }

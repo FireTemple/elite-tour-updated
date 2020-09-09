@@ -1,10 +1,17 @@
 <template>
   <div class="hotel-detail">
     <nar-bar/>
-    <big-screen-bot/>
+    <big-screen-bot :hotelAddress="hotel.address" :title="hotel.name" :price="hotel.cPrice" type="hotel"/>
     <main>
       <position/>
-      <detail-main type="hotel" />
+      <detail-main
+        type="hotel"
+        :rooms="rooms"
+        :facilities-des="hotel.facilitiesDes"
+        :facilities="facilities"
+        :name="hotel.name"
+        :details="hotel.details"
+      />
     </main>
     <my-footer/>
   </div>
@@ -26,15 +33,22 @@
       DetailMain,
       MyFooter
     },
+    data(){
+      return {
+        facilities:[],
+        hotel:{},
+        rooms:[]
+      }
+    },
     beforeCreate() {
-      let itemId = this.$store.state.currentTourId;
+      let itemId = this.$store.state.currentHotelId;
       if (itemId === null) {
         console.log("NONONONONONONO!");
+        this.$router.go(-1)
       }
     },
     created() {
-      let itemId = this.$store.state.currentTourId;
-      console.log(itemId);
+      this.getData();
     },
     mounted() {
       $(document).ready(function ($) {
@@ -53,6 +67,39 @@
           autoplay: false
         });
       });
+    },
+    methods: {
+      getData() {
+        let itemId = this.$store.state.currentHotelId;
+        this.$axios({
+          method: 'get',
+          url: '/api/hotel/' + itemId
+        }).then(res => {
+          this.hotel = res.data
+        }).catch(error => {
+          console.log(error);
+        })
+
+        // facilities
+        this.$axios({
+          method:'get',
+          url: '/api/facilities/' + itemId
+        }).then(res => {
+          this.facilities = res.data
+        }).catch(error => {
+          console.log(error)
+        })
+
+        // rooms
+        this.$axios({
+          method: 'get',
+          url: '/api/rooms/' + itemId
+        }).then(res => {
+          this.rooms = res.data;
+        }).catch(error => {
+          console.log(error);
+        })
+      },
     }
   }
 </script>
