@@ -5,8 +5,11 @@ import store from "./store";
 import 'animate.css';
 import {TweenLite} from 'gsap';
 import axios from './network/index'
-Vue.prototype.$axios = axios //全局注册，使用方法为:this.$axios
+import ElementUI from 'element-ui';
+import  'element-ui/lib/theme-chalk/index.css';
 
+Vue.prototype.$axios = axios //全局注册，使用方法为:this.$axios
+Vue.use(ElementUI);
 window.TweenLite = TweenLite;
 window.$ = window.jQuery = require('jquery')
 

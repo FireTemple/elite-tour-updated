@@ -18,7 +18,11 @@
         :name="item.name"
         :include-des="item.includeDescription"
         :include-items="includeItems"
+        :price="item.cPrice"
+        :item-id="item.id"
       />
+
+
     </main>
     <my-footer/>
   </div>
@@ -115,6 +119,7 @@
       let itemId = this.$store.state.currentTourId;
       if (itemId === null) {
         console.log("NONONONONONONO!");
+        this.$router.go(-1)
       }
     },
     created() {

@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-lg-4 col-md-4">
           <h3>Need help?</h3>
-          <a href="tel://004542344599" id="phone">+45 423 445 99</a>
-          <a href="mailto:help@citytours.com" id="email_footer">help@citytours.com</a>
+          <a href="tel://1883034880" id="phone">+1 888 303 4880</a>
+          <a href="mailto:support@myzoomride.com" id="email_footer">support@myzoomride.com</a>
           <p><img src="img/payments.png" width="231" height="30" alt="Image" data-retina="true" class="img-fluid"></p>
         </div>
         <div class="col-lg-2 col-md-3 ml-md-auto">
@@ -15,14 +15,14 @@
             </li>
             <li><a href="#">FAQ</a>
             </li>
-            <li><a href="#">Blog</a>
-            </li>
+<!--            <li><a href="#">Blog</a>-->
+<!--            </li>-->
             <li><a href="#">Contacts</a>
             </li>
-            <li><a href="#">Login</a>
-            </li>
-            <li><a href="#">Register</a>
-            </li>
+<!--            <li><a href="#">Login</a>-->
+<!--            </li>-->
+<!--            <li><a href="#">Register</a>-->
+<!--            </li>-->
             <li><a href="#">Terms and condition</a>
             </li>
           </ul>
@@ -63,22 +63,12 @@
         <div class="col-lg-12">
           <div id="social_footer">
             <ul>
-              <li><a href="#"><i class="icon-facebook"></i></a>
+              <li><a href="https://www.facebook.com/my.zoomride/"><i class="icon-facebook"></i></a>
               </li>
-              <li><a href="#"><i class="icon-twitter"></i></a>
-              </li>
-              <li><a href="#"><i class="icon-google"></i></a>
-              </li>
-              <li><a href="#"><i class="icon-instagram"></i></a>
-              </li>
-              <li><a href="#"><i class="icon-pinterest"></i></a>
-              </li>
-              <li><a href="#"><i class="icon-vimeo"></i></a>
-              </li>
-              <li><a href="#"><i class="icon-youtube-play"></i></a>
+              <li><a href="https://www.instagram.com/myzoomrides/"><i class="icon-instagram"></i></a>
               </li>
             </ul>
-            <p>© Citytours 2018</p>
+            <p>© 2020 Zoom Ride,Inc.</p>
           </div>
         </div>
       </div>

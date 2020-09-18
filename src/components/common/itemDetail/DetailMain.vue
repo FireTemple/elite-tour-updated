@@ -29,6 +29,7 @@
             <li v-show="noSmoking === '1'"><i class="icon_set_1_icon-47"></i>No smoking area</li>
           </ul>
         </div>
+
         <SliderPro/>
         <hr>
         <DetailDes>
@@ -40,15 +41,17 @@
                 :include-item="includeItems"
                 :facilities="facilities"
                 :facilities-des="facilitiesDes"
+                :menu-des="menuDes"
           />
           <schedule slot="schedule" v-if="isTour" />
           <room-type slot="rooms" v-else-if="isHotel" :room-list="rooms"/>
-          <opening-time slot="opening" v-else/>
+          <opening-time v-for="item in openingTime" :key="item.id" :data="item" slot="opening" v-else/>
         </DetailDes>
+
       </div>
       <!--End  single_tour_desc-->
       <aside class="col-lg-4">
-<!--        <booking :type="type" />-->
+        <booking :type="type" :price="price" :item-id="itemId" :name="name"/>
         <helps/>
       </aside>
 
@@ -114,7 +117,7 @@
       duration:{
         type:String,
         default(){
-          return '2'
+          return ''
         }
       },
       accessibility:{
@@ -191,7 +194,14 @@
         }
       },
 
-      // for tours
+
+     // basic info
+      itemId:{
+        type: String,
+        default(){
+          return '';
+        }
+      },
       name:{
         type:String,
         default(){
@@ -204,6 +214,7 @@
           return '';
         }
       },
+      // for tours
       includeDes:{
         type:String,
         default(){
@@ -215,6 +226,10 @@
       facilities:[],
       facilitiesDes:'',
       rooms:[],
+      // for restaurant
+      openingTime:[],
+      menuDes:'',
+      price:'',
     },
     computed: {
       isTour(){

@@ -82,7 +82,7 @@
       getResList(){
         this.$axios({
           method:'get',
-          url:'/api/ress'
+          url:'/api/ressActive'
         }).then(res => {
           this.resList = res.data;
           this.resListTemp = res.data;

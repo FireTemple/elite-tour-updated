@@ -4,7 +4,15 @@
     <big-screen-bot/>
     <main>
       <position/>
-      <detail-main type="res"/>
+      <detail-main
+        :has-parking="res.hasParking"
+        :allow-pet="res.allowPet"
+        :no-smoking="res.noSmoking"
+        :has-accessibility="res.hasAccessibility"
+        :details="res.details"
+        :menu-des="res.menuDes"
+        :opening-time="openingTime"
+        type="res"/>
     </main>
   </div>
 </template>
@@ -42,6 +50,8 @@
     created() {
       let itemId = this.$store.state.currentResId;
       this.getRes(itemId);
+      this.getOpeningTime(itemId);
+      this.getMenu(itemId);
     },
     mounted() {
       $(document).ready(function ($) {
@@ -70,7 +80,27 @@
             this.res = res.data;
           console.log(this.res);
         })
-      }
+      },
+      getOpeningTime(itemId){
+        this.$axios({
+          method:'get',
+          url:'/api/opening-time/' + itemId
+        }).then(res => {
+          this.openingTime = res.data
+        }).catch(error => {
+          console.log(error)
+        })
+      },
+      getMenu(itemId){
+        this.$axios({
+          method: 'get',
+          url:'/api/menu/' + itemId
+        }).then(res => {
+          this.menus = res.data
+        }).catch(error => {
+          console.log(error)
+        })
+      },
     }
   }
 </script>

@@ -19,7 +19,7 @@
               Monday
             </td>
             <td>
-              {{this.data.schedule[0]}}
+              {{this.data.mo}}
             </td>
           </tr>
           <tr>
@@ -27,7 +27,7 @@
               Tuesday
             </td>
             <td>
-              {{this.data.schedule[1]}}
+              {{this.data.tu}}
 
             </td>
           </tr>
@@ -36,7 +36,7 @@
               Wednesday
             </td>
             <td>
-              {{this.data.schedule[2]}}
+              {{this.data.we}}
 
             </td>
           </tr>
@@ -45,7 +45,7 @@
               Thursday
             </td>
             <td>
-              {{this.data.schedule[3]}}
+              {{this.data.th}}
             </td>
           </tr>
           <tr>
@@ -53,7 +53,7 @@
               Friday
             </td>
             <td>
-              {{this.data.schedule[4]}}
+              {{this.data.fri}}
             </td>
           </tr>
           <tr>
@@ -61,7 +61,7 @@
               Saturday
             </td>
             <td>
-              {{this.data.schedule[5]}}
+              {{this.data.sa}}
             </td>
           </tr>
           <tr>
@@ -69,7 +69,7 @@
               Sunday
             </td>
             <td>
-              {{this.data.schedule[6]}}
+              {{this.data.su}}
             </td>
           </tr>
           </tbody>
@@ -90,15 +90,13 @@
         default(){
           return {
             title:'1st March to 31st October',
-            schedule:[
-              '10.00 - 17.30',
-              '09.00 - 17.30',
-              '09.00 - 17.30',
-              'Closed',
-              '09.00 - 17.30',
-              '09.00 - 17.30',
-              '10.00 - 17.30'
-            ]
+            mo: '',
+            tu: '',
+            we: '',
+            th: '',
+            fri: '',
+            sa: '',
+            su: '',
           }
         }
       }
